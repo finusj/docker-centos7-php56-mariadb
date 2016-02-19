@@ -1,0 +1,30 @@
+proxy:
+    image: jwilder/nginx-proxy
+    ports:
+        - "80:80"
+        - "443:443"
+    volumes:
+        - /var/run/docker.sock:/tmp/docker.sock
+        - ./containers/proxy/proxy.conf:/etc/nginx/conf.d/my_proxy.conf
+
+webproject:
+    build: "./containers/web/"
+    ports:
+        - "80"
+    environment:
+       - VIRTUAL_HOST=webproject.dev,*.webproject.dev
+    volumes:
+       - ../fumes.com.br:/shop/www/htdocs/webproject.dev
+    links:
+       - database:database.dev
+
+database:
+    image: mariadb:latest
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - VIRTUAL_HOST=database.dev
+    volumes:
+        - ./tmp/mysql:/var/lib/mysql
+        - ./containers/database/my.cnf:/etc/mysql/conf.d/custom.cnf
+    ports:
+        - "3306:3306"
