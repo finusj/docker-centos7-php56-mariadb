@@ -12,7 +12,7 @@
 https://docs.docker.com/engine/installation/
 ```
 
-## install Docker-Compose ##
+## Install Docker-Compose ##
 
 ```
 https://docs.docker.com/compose/install/
@@ -34,12 +34,12 @@ First time
 docker-compose build
 ```
 
-Up machines
+### Up machines ###
 ```
 docker-compose up -d
 ```
 
-Stop
+### Stop ###
 ```
 docker-compose stop
 docker-compose rm
