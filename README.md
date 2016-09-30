@@ -1,3 +1,5 @@
+[![](https://images.microbadger.com/badges/image/lcfumes/docker-centos7-php56-mariadb.svg)](https://microbadger.com/images/lcfumes/docker-centos7-php56-mariadb "Get your own image badge on microbadger.com")
+
 # Docker Fumes #
 
 ## Containers ##
